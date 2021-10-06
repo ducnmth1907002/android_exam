@@ -49,7 +49,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void onAddProduct() {
-
+        if (edName.getText().toString().isEmpty()) {
+            Toast.makeText(this, "Please enter name", Toast.LENGTH_LONG).show();
+            return;
+        }
+        if (edQuantity.getText().toString().isEmpty() ) {
+            Toast.makeText(this, "Please enter quantity", Toast.LENGTH_LONG).show();
+            return;
+        }
         String isAdd = dbHelper.addProduct(edName.getText().toString(), edQuantity.getText().toString());
         Toast.makeText(this, isAdd, Toast.LENGTH_SHORT).show();
     }
